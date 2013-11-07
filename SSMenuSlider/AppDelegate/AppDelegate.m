@@ -9,19 +9,28 @@
 #import "AppDelegate.h"
 #import "SSMenuVC.h"
 #import "SSSliderVC.h"
-
+@interface AppDelegate ()
+@property (nonatomic) SSSliderVC *sliderVC;
+@property (nonatomic) UINavigationController *rootNavigationVC;
+@end
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    SSSliderVC *sliderVC = [[SSSliderVC alloc] init];
-    UINavigationController *rootNavigationVC = [[UINavigationController alloc] initWithRootViewController:sliderVC];
-    SSMenuVC *menu = [[SSMenuVC alloc] initWithDataSource:@[@"Menu1",@"Menu2"] onEventCompletion:^(id object) {
-        self.window.rootViewController = rootNavigationVC;
+    self.sliderVC = [[SSSliderVC alloc] initWithDataSource:nil onEventCompletion:^(id object) {
+        CGRect frame = self.rootNavigationVC.view.frame;
+        frame.origin.x = (frame.origin.x  == 0) ?  frame.size.width*0.80 :  0;
+        self.rootNavigationVC.view.frame = frame;
     }];
-    [menu.view addSubview:rootNavigationVC.view];
+    self.rootNavigationVC  = [[UINavigationController alloc] initWithRootViewController:self.sliderVC];
+    SSMenuVC *menu = [[SSMenuVC alloc] initWithDataSource:@[@"Menu1",@"Menu2"] onEventCompletion:^(id object) {
+        CGRect frame = self.rootNavigationVC.view.frame;
+        frame.origin.x = 0;
+        self.rootNavigationVC.view.frame = frame;
+    }];
+    [menu.view addSubview:self.rootNavigationVC.view];
     self.window.rootViewController = menu;
     [self.window makeKeyAndVisible];
     return YES;

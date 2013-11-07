@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SSSliderVC : UIViewController
-
+#import "SSMenuVC.h"
+@interface SSSliderVC : UIViewController {
+    EventCompletionHandler eventCompletionHandler;
+}
+- (id)initWithDataSource:(id)object onEventCompletion:(EventCompletionHandler )handler;
 @end

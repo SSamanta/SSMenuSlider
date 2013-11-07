@@ -7,21 +7,34 @@
 //
 
 #import "SSSliderVC.h"
-
 @interface SSSliderVC ()
 
 @end
 
 @implementation SSSliderVC
-
+- (id)initWithDataSource:(id)object onEventCompletion:(EventCompletionHandler )handler {
+    if(self = [super init]) {
+        eventCompletionHandler = handler;
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.view.frame = CGRectMake(self.view.frame.size.width*0.80, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
-	[self addPanGesture];
+    [self setSliderSetUp];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+- (void)setSliderSetUp {
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(goToMenu:)];
+    self.navigationController.view.frame = CGRectMake(self.view.frame.size.width*0.80, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+	[self addPanGesture];
+}
+- (void)goToMenu:(id)sender {
+    if (eventCompletionHandler) {
+        eventCompletionHandler (nil);
+    }
 }
 - (void)addPanGesture {
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
