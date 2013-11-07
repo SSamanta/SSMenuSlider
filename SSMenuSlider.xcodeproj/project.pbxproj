@@ -30,6 +30,8 @@
 		555CAF60182A89BB00733A52 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 555CAF51182A89BB00733A52 /* main.m */; };
 		555CAF61182A89BB00733A52 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 555CAF51182A89BB00733A52 /* main.m */; };
 		555CAF63182A89BB00733A52 /* SSMenuSlider-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 555CAF52182A89BB00733A52 /* SSMenuSlider-Info.plist */; };
+		5586FFE0182BBA0500400C20 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5586FFDF182BBA0500400C20 /* Default-568h@2x.png */; };
+		5586FFE1182BBA0500400C20 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5586FFDF182BBA0500400C20 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,7 @@
 		555CAF51182A89BB00733A52 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		555CAF52182A89BB00733A52 /* SSMenuSlider-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SSMenuSlider-Info.plist"; sourceTree = "<group>"; };
 		555CAF53182A89BB00733A52 /* SSMenuSlider-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSMenuSlider-Prefix.pch"; sourceTree = "<group>"; };
+		5586FFDF182BBA0500400C20 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +180,7 @@
 				555CAF51182A89BB00733A52 /* main.m */,
 				555CAF52182A89BB00733A52 /* SSMenuSlider-Info.plist */,
 				555CAF53182A89BB00733A52 /* SSMenuSlider-Prefix.pch */,
+				5586FFDF182BBA0500400C20 /* Default-568h@2x.png */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -257,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				555CAF58182A89BB00733A52 /* SSMenuVC.xib in Resources */,
+				5586FFE0182BBA0500400C20 /* Default-568h@2x.png in Resources */,
 				555CAF5E182A89BB00733A52 /* InfoPlist.strings in Resources */,
 				555CAF5C182A89BB00733A52 /* SSSliderVC.xib in Resources */,
 			);
@@ -271,6 +276,7 @@
 				555CAF5D182A89BB00733A52 /* SSSliderVC.xib in Resources */,
 				555CAF63182A89BB00733A52 /* SSMenuSlider-Info.plist in Resources */,
 				555CAF59182A89BB00733A52 /* SSMenuVC.xib in Resources */,
+				5586FFE1182BBA0500400C20 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +497,7 @@
 				555CAF34182A84E800733A52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		555CAF35182A84E800733A52 /* Build configuration list for PBXNativeTarget "SSMenuSliderTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +506,7 @@
 				555CAF37182A84E800733A52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

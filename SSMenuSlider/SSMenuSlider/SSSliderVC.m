@@ -14,25 +14,35 @@
 
 @implementation SSSliderVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.navigationController.view.frame = CGRectMake(self.view.frame.size.width*0.80, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+	[self addPanGesture];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
+- (void)addPanGesture {
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    panGestureRecognizer.minimumNumberOfTouches = 1.0;
+    self.view.userInteractionEnabled = YES;
+    [self.navigationController.view addGestureRecognizer:panGestureRecognizer];
+}
+- (void)handlePan:(UIPanGestureRecognizer *)recognizer {
+    CGPoint translation = [recognizer translationInView:recognizer.view];
+    recognizer.view.center=CGPointMake(recognizer.view.center.x+translation.x, recognizer.view.center.y);
+    [recognizer setTranslation:CGPointMake(0, 0) inView:recognizer.view];
+    if (recognizer.state == UIGestureRecognizerStateEnded ) {
+        CGRect rect = self.view.frame;
+        if (recognizer.view.frame.origin.x > self.view.frame.size.width/2) {
+            rect.origin.x = rect.size.width *0.80;
+        }else {
+            rect.origin.x = 0.0;
+        }
+        [UIView animateWithDuration:0.3 animations:^(void){
+        	self.navigationController.view.frame = rect;
+        }];
+    }
+}
 @end

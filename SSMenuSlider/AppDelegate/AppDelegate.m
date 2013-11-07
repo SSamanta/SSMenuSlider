@@ -8,15 +8,20 @@
 
 #import "AppDelegate.h"
 #import "SSMenuVC.h"
+#import "SSSliderVC.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    SSSliderVC *sliderVC = [[SSSliderVC alloc] init];
+    UINavigationController *rootNavigationVC = [[UINavigationController alloc] initWithRootViewController:sliderVC];
     SSMenuVC *menu = [[SSMenuVC alloc] initWithDataSource:@[@"Menu1",@"Menu2"] onEventCompletion:^(id object) {
-        
+        self.window.rootViewController = rootNavigationVC;
     }];
+    [menu.view addSubview:rootNavigationVC.view];
     self.window.rootViewController = menu;
     [self.window makeKeyAndVisible];
     return YES;
