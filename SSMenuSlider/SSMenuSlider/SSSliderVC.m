@@ -7,6 +7,7 @@
 //
 
 #import "SSSliderVC.h"
+#import "DetailsVC.h"
 @interface SSSliderVC ()
 
 @end
@@ -57,5 +58,9 @@
         	self.navigationController.view.frame = rect;
         }];
     }
+}
+- (IBAction)go:(id)sender {
+    DetailsVC *detailsVC = [[DetailsVC alloc] init];
+    [self.navigationController pushViewController:detailsVC animated:YES];
 }
 @end
